@@ -89,7 +89,7 @@ public class MemoryGameJava {
             MemoryGameJava.attemptCounter++;
         }
         // game is finished if user reaches here
-        System.out.println(String.format("Congratulations, You have found all the matching pairs :OOOOO, it took you %d attempts", MemoryGameJava.attemptCounter)); // win game statement
+        System.out.println(String.format("Congratulations You Win. You have found all the matching pairs! It took you %d attempts", MemoryGameJava.attemptCounter)); // win game statement
     }
 
     public static void getCoords2() {
@@ -99,9 +99,9 @@ public class MemoryGameJava {
             try {
                 printBoard();
                 System.out.println("Make sure your numbers are between 0-3 and are not currently revealed.");
-                System.out.print("Column number2: ");
+                System.out.print("Second column number: ");
                 column2 = sc.nextInt(); // user column number
-                System.out.print("Row number2: ");
+                System.out.print("Second row number: ");
                 row2 = sc.nextInt(); // user row number
             } catch (InputMismatchException e) { // raises exception if a non-integer is submitted
                System.out.println("\nPlease type a number from 0-3\n"); 
@@ -117,9 +117,9 @@ public class MemoryGameJava {
             try {
                 printBoard();
                 System.out.println("Make sure your numbers are between 0-3 and are not currently revealed.");
-                System.out.print("Column number1: ");
+                System.out.print("First column number: ");
                 column1 = sc.nextInt(); // user column number
-                System.out.print("Row number1: ");
+                System.out.print("First row number: ");
                 row1 = sc.nextInt(); // user row number
             } catch (InputMismatchException e) { // raises exception a non-integer is submitted
                System.out.println("\nPlease type a number\n"); 
