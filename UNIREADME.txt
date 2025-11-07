@@ -17,21 +17,7 @@ The first "startTime" (line 68) variable records the time that variable created 
 This has been defined as a class attribute of MemoryGameJava which is incremented by one for each attempt by the player. For this game an 'attempt' is any valid (as in it passes all validity checks; lines 103, 112, 121, 130) pair of guesses the user has made, regardless if those guesses are correct or not.
 
 ### Error and Exception Handling
-Error handling has been broken into two main criteria for this project: checking the user has typed a number and not some other character via. try, catch, and that the user has typed the correct number.
+Error handling has been broken into two main criteria for this project: checking the user has typed a number and not some other character via. try, catch, and that the user has typed the correct number
 
 ## Problems Encountered
 ### Closing Scanner While in a Try, Catch Loop
-The greatest problem was when trying to close the scanner in the getCoords1() and getCoords2() functions (lines 119 and 101 respectively). When typing a close statement at the end of each loop a message would pop up saying “convert to try-with-resources”. This meant to put the opening scanner statement within the try, catch block and Java is supposed to automatically close the scanner like so:
-
-try (Scanner sc=new Scanner(System.in)) {
-//code
-//automatically closes scanner when the try block is finished
-}
-catch (InputMismatchException e){
-//code
-}
-
-However this completely broke my code in a way that I still do not quite understand; the code would run to take the users first input, but if that input failed any condition, the try, catch block would loop and immediately crash with a NoSuchElementException. Even when Java was able to print the value of whatever it was supposed to be evaluating, immediately after it would return a NoSuchElement Exception. This post on stackoverflow,
-https://stackoverflow.com/questions/47588704/java-using-scanner-with-try-with-resources
-was the only forum to post the exact same issue and there is a solution/explanation however it was a bit difficult to understand, in particular what exactly was going wrong.
-

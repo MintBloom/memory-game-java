@@ -2,6 +2,8 @@
 //
 //The cards are A B C D E F G H.
 // A player can pick card’s by entering row and column. For example, for the first pick 'row: 2' and on the next line 'column: 0'
+import java.time.Duration;
+import java.time.Instant;
 import java.util.*;
 
 public class MemoryGameJava {
@@ -63,7 +65,7 @@ public class MemoryGameJava {
         // this function will take the users choice of which cards to reveal
         int matchesFound = 0; // number of card matches found by the user 
         int totalMatchesFound = 8; // obtained via. (SIZE*SIZE/2)
-        
+        Instant startTime = Instant.now(); // records first instance of time - when the gameplay has started
         while (matchesFound < totalMatchesFound) {
             // loop continues until all possible matches have been found
             getCoords1(); //
@@ -88,8 +90,12 @@ public class MemoryGameJava {
             // each valid pair of spots guessed on the board (not necessarily correct guesses) will increase the attempt counter by one
             MemoryGameJava.attemptCounter++;
         }
+        Instant finishTime = Instant.now(); // records second instance of time - when the the player has won and gameplay has finished
+        long timeElapsed = Duration.between(startTime, finishTime).toSeconds(); // calculates time elapsed between start and finish time
         // game is finished if user reaches here
         System.out.println(String.format("Congratulations You Win. You have found all the matching pairs! It took you %d attempts", MemoryGameJava.attemptCounter)); // win game statement
+        System.out.println("Time taken (seconds):");
+        System.out.println(timeElapsed);
     }
 
     public static void getCoords2() {
